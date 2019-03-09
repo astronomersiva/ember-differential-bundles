@@ -1,0 +1,14 @@
+{
+  "name": "ember-differential-bundles",
+  "version": "1.0.0",
+  "description": "An utility to help with serving differential bundles to users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sivasubramanyam A<hi@siva.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "posthtml": "^0.11.3"
+  }
+}
