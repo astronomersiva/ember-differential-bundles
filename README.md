@@ -76,6 +76,18 @@ This is one feasible solution to this problem. Importantly,
       browsers
     };
   ```
+* `broccoli-persistent-filter` [does not support](https://github.com/stefanpenner/broccoli-persistent-filter/issues/124)
+  concurrent builds. This will result in build errors with the message `Unexpected end of file ...`. To avoid this, in
+  `ember-cli-build.js`, set the `BROCCOLI_PERSISTENT_FILTER_CACHE_ROOT` environment variable to a random path. For
+  example,
+  ```javascript
+    if (EmberApp.env() === 'production') {
+      process.env.BROCCOLI_PERSISTENT_FILTER_CACHE_ROOT = path.join(
+        process.cwd(),
+       `cache_${Date.now()}_${Math.floor(Math.random() * 10)}`
+      );
+    }
+  ```
 * Run parallel builds with 
   ```bash
     ember build --environment=production --output-path=modern &
