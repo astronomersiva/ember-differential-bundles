@@ -19,7 +19,9 @@ if (fs.existsSync('legacy/engines-dist')) {
 }
 
 // rename assetMap to preserve both legacy and modern
-fs.renameSync('modern/assets/assetMap.json', 'modern/assets/assetMapModern.json');
+if (fs.existsSync('modern/assets/assetMap.json')) {
+  fs.renameSync('modern/assets/assetMap.json', 'modern/assets/assetMapModern.json');
+}
 
 execSync('cp -r legacy/assets/ dist/assets');
 execSync('cp -r modern/assets/* dist/assets');
